@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +18,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pie-EZ-inC">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="PurpleForeground"/>
+                                <color key="separatorColor" name="PurpleForeground"/>
+                                <color key="sectionIndexBackgroundColor" name="PurpleForeground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="accountsListCell" rowHeight="162" id="RTQ-DR-oi7" customClass="AccountsListTableViewCell" customModule="CS_TestTask" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="162"/>
@@ -53,6 +54,7 @@
                                                 <constraint firstItem="Ayy-yU-czz" firstAttribute="top" secondItem="qId-jL-fe9" secondAttribute="top" constant="10" id="r21-lK-4jZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="PurpleForeground"/>
                                         <connections>
                                             <outlet property="accountNumberLabel" destination="6a8-vy-i88" id="8i5-rJ-85e"/>
                                             <outlet property="nameLabel" destination="lhT-EZ-3gw" id="Tp2-0T-K8K"/>
@@ -62,7 +64,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="PurpleBackground"/>
+                        <color key="backgroundColor" name="PurpleForeground"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pie-EZ-inC" secondAttribute="trailing" id="7Lp-tv-EDv"/>
                             <constraint firstItem="Pie-EZ-inC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PJI-yz-kB3"/>
@@ -80,11 +82,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="PurpleBackground">
-            <color red="0.42347608933952974" green="0.22145153570373799" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PurpleForeground">
+            <color red="0.93333333333333335" green="0.90196078431372551" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
