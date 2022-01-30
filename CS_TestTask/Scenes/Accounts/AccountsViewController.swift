@@ -7,84 +7,106 @@
 
 import UIKit
 
-class AccountsViewController: UIViewController {
+class AccountsViewController: UIViewController, AccountsProtocol {
     
     var viewModel: AccountsViewModel?
+    private var accounts = [Accounts]()
     
-    //MARK: - CollectionView
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    //MARK: - Components outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var transparencyFrom: UILabel!
-    @IBOutlet weak var transparencyTo: UILabel!
-    @IBOutlet weak var ibanLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var balanceView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.delegate = self
+        setUpNavigationBar()
+        setUpBalanceView()
         setUpCollectionView()
     }
     
+    // Setup NavigationBar with custom button which open list view.
+    private func setUpNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .done, target: self, action: #selector(openList))
+        navigationController?.navigationBar.tintColor = UIColor(named: "PurpleForeground")
+    }
+    
+    // Setup BalanceView
+    private func setUpBalanceView() {
+        balanceView.layer.masksToBounds = true
+        balanceView.layer.cornerRadius = 20
+        balanceView.dropShadow()
+    }
+    
+    // Setup collectionView with own ViewLayout for single cell pagination.
     private func setUpCollectionView() {
         collectionView.register(UINib(nibName: "AccountCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "accountCell")
-        
-        collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.delegate = self
         
+        // Layer modification
         collectionView.layer.masksToBounds = true
-        collectionView.layer.cornerRadius = 30
+        collectionView.layer.cornerRadius = 20
         
         let layout = PagingCollectionViewLayout()
-        layout.itemSize = CGSize(width: collectionView.bounds.width - 50, height: collectionView.bounds.height - 200)
+        layout.itemSize = CGSize(width: view.bounds.width, height: collectionView.bounds.height)
+        layout.numberOfItemsPerPage = 1
         layout.scrollDirection = .horizontal
-
-        collectionView.setCollectionViewLayout(layout, animated: true)
         
+        collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.isPagingEnabled = false
-        collectionView.decelerationRate = .normal
+        collectionView.decelerationRate = .fast
+    }
+    
+    @objc func openList(_ sender: UIButton) {
+        viewModel?.showList()
+    }
+    
+    // Delegates methods
+    func reload(with accounts: [Accounts]) {
+        DispatchQueue.global().async {
+            self.accounts = accounts
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 
 extension AccountsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return accounts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath) as? AccountCollectionViewCell else { return UICollectionViewCell.init() }
         
-        cell.balanceLabel.text = "2 000 CZK"
-        cell.accountNumberLabel.text = "000000-0109213309"
-        cell.bankCodeLabel.text = "0800"
-        
-        nameLabel.text = "Společenství Praha 4, Obětí 6.května 553"
-        balanceLabel.text = "2 000 CZK"
-        transparencyFrom.text = "12.4.2012"
-        transparencyTo.text = "31.4.2072"
-        ibanLabel.text = "CZ75 0800 0000 0001 0921 3309"
-        
+        cell.balanceLabel.text = "\(accounts[indexPath.row].balance)"
+        cell.accountNumberLabel.text = accounts[indexPath.row].accountNumber
+        cell.bankCodeLabel.text = accounts[indexPath.row].bankCode
         cell.cardView.backgroundColor = .random
-        
         return cell
     }
     
-}
-
-extension AccountsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
-
 }
 
-extension UIColor {
-    static var random: UIColor {
-        return UIColor(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1), alpha: 1
-        )
+extension AccountsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = self.collectionView.cellForItem(at: indexPath) as? AccountCollectionViewCell
+        guard let backgroundColor = cell?.cardView.backgroundColor else { return }
+        viewModel?.showDetail(of: accounts[indexPath.row], backgroundColor: backgroundColor)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        nameLabel.text = accounts[indexPath.row].name
+        balanceLabel.text = "\(accounts[indexPath.row].balance)"
+        currencyLabel.text = accounts[indexPath.row].currency ?? ""
     }
 }

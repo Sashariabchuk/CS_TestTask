@@ -7,7 +7,6 @@
 
 import UIKit
 
-// Appcoordinator flow
 protocol AppCoordinatorProtocol: Coordinator {
     func showAccountsFlow()
 }
@@ -24,13 +23,11 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(true, animated: true)
     }
     
     func start() {
         showAccountsFlow()
     }
-    
     
     func showAccountsFlow() {
         let accountsCoordinator = AccountsCoordinator(navigationController)

@@ -9,10 +9,11 @@ import UIKit
 
 protocol AccountsCoordinatorProtocol: Coordinator {
     func showAccountsVC()
+    func navigateToDetailPage(for account: Accounts, backgroundColor: UIColor)
 }
 
 class AccountsCoordinator: AccountsCoordinatorProtocol {
-
+    
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -34,13 +35,31 @@ class AccountsCoordinator: AccountsCoordinatorProtocol {
         guard let accountsViewController = storyboard.instantiateViewController(withIdentifier: "AccountsViewController") as? AccountsViewController else { return }
         let accountsViewModel = AccountsViewModel()
         
-//        previewViewModel.coordinator = self
-        
+        accountsViewModel.coordinator = self
         accountsViewController.viewModel = accountsViewModel
-        
         accountsViewController.title = "Accounts"
         
         navigationController.pushViewController(accountsViewController, animated: true)
     }
-
+    
+    // Navigate to detail page
+    func navigateToDetailPage(for account: Accounts, backgroundColor: UIColor) {
+        let accountDetailCoordinator = AccountDetailCoordinator(navigationController)
+        accountDetailCoordinator.account = account
+        accountDetailCoordinator.backgroundColor = backgroundColor
+        childCoordinators.append(accountDetailCoordinator)
+        accountDetailCoordinator.start()
+    }
+    
+    func showList() {
+        let storyboard = UIStoryboard(name: "AccountsListStoryboard", bundle: .main)
+        guard let accountsListViewController = storyboard.instantiateViewController(withIdentifier: "AccountsListViewController") as? AccountsListViewController else { return }
+        let accountsViewModel = AccountsViewModel()
+        
+        accountsViewModel.coordinator = self
+        accountsListViewController.viewModel = accountsViewModel
+        accountsListViewController.title = "Accounts list"
+        
+        navigationController.pushViewController(accountsListViewController, animated: true)
+    }
 }

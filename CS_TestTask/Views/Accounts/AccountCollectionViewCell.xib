@@ -4,52 +4,48 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accountCell" id="gTV-IL-0wX" customClass="AccountCollectionViewCell" customModule="CS_TestTask" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="520" height="275"/>
+            <rect key="frame" x="0.0" y="0.0" width="671" height="470"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="275"/>
+                <rect key="frame" x="0.0" y="0.0" width="671" height="470"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwH-wl-iYY">
-                        <rect key="frame" x="0.0" y="0.0" width="520" height="275"/>
+                        <rect key="frame" x="20" y="100" width="631" height="270"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HF0-uj-udP" userLabel="VStack">
-                                <rect key="frame" x="20" y="35" width="480" height="220"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HF0-uj-udP" userLabel="VStack">
+                                <rect key="frame" x="20" y="34" width="591" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFe-aR-03m">
-                                        <rect key="frame" x="0.0" y="0.0" width="480" height="73.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="591" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-Cx-V6d">
-                                        <rect key="frame" x="0.0" y="73.5" width="480" height="73"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-Cx-V6d">
+                                        <rect key="frame" x="0.0" y="20.5" width="591" height="171.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-8B-Bg3" userLabel="HStack">
-                                        <rect key="frame" x="0.0" y="146.5" width="480" height="73.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-8B-Bg3" userLabel="HStack">
+                                        <rect key="frame" x="0.0" y="192" width="591" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfH-Sg-sPh">
-                                                <rect key="frame" x="0.0" y="0.0" width="330" height="73.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTX-Pf-uD6">
-                                                <rect key="frame" x="330" y="0.0" width="150" height="73.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="I8l-ET-X6q"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTX-Pf-uD6">
+                                                <rect key="frame" x="69" y="0.0" width="522" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -58,7 +54,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="HF0-uj-udP" secondAttribute="bottom" constant="20" id="3sd-Os-kuR"/>
                             <constraint firstItem="HF0-uj-udP" firstAttribute="leading" secondItem="cwH-wl-iYY" secondAttribute="leading" constant="20" id="Jhd-Qw-o64"/>
@@ -70,12 +65,12 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="cwH-wl-iYY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9Ua-fT-kDR"/>
-                <constraint firstItem="cwH-wl-iYY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GGr-qV-weu"/>
-                <constraint firstAttribute="trailing" secondItem="cwH-wl-iYY" secondAttribute="trailing" id="JVD-we-guw"/>
-                <constraint firstAttribute="bottom" secondItem="cwH-wl-iYY" secondAttribute="bottom" id="zzu-Gc-Esg"/>
+                <constraint firstItem="cwH-wl-iYY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="100" id="9Ua-fT-kDR"/>
+                <constraint firstItem="cwH-wl-iYY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="GGr-qV-weu"/>
+                <constraint firstAttribute="trailing" secondItem="cwH-wl-iYY" secondAttribute="trailing" constant="20" id="JVD-we-guw"/>
+                <constraint firstAttribute="bottom" secondItem="cwH-wl-iYY" secondAttribute="bottom" constant="100" id="zzu-Gc-Esg"/>
             </constraints>
-            <size key="customSize" width="520" height="275"/>
+            <size key="customSize" width="671" height="470"/>
             <connections>
                 <outlet property="accountNumberLabel" destination="GfH-Sg-sPh" id="Mu0-VV-OSx"/>
                 <outlet property="balanceLabel" destination="Igy-Cx-V6d" id="La7-2z-75e"/>
@@ -83,12 +78,7 @@
                 <outlet property="bankCodeLabel" destination="DTX-Pf-uD6" id="bbt-cN-jyW"/>
                 <outlet property="cardView" destination="cwH-wl-iYY" id="fft-8V-dGv"/>
             </connections>
-            <point key="canvasLocation" x="472.46376811594206" y="201.22767857142856"/>
+            <point key="canvasLocation" x="581.8840579710145" y="265.84821428571428"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

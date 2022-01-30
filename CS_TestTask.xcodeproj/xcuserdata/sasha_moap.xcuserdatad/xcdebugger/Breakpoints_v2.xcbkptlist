@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CC90BD6-756C-4DEC-A77E-9D62FD277901"
+            uuid = "2CED2541-2AB1-41F2-8415-9CC04950C648"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CS_TestTask/Extensions/PagingCollectionViewLayout.swift"
+            filePath = "CS_TestTask/Scenes/AccountDetail/AccountDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "targetContentOffset(forProposedContentOffset:withScrollingVelocity:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

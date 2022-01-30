@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Accounts List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AccountsListViewController" id="Y6W-OH-hqX" customClass="AccountsListViewController" customModule="CS_TestTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pie-EZ-inC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="accountsListCell" rowHeight="162" id="RTQ-DR-oi7" customClass="AccountsListTableViewCell" customModule="CS_TestTask" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="162"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RTQ-DR-oi7" id="qId-jL-fe9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ayy-yU-czz">
+                                                    <rect key="frame" x="10" y="10" width="394" height="142"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhT-EZ-3gw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a8-vy-i88">
+                                                            <rect key="frame" x="0.0" y="24" width="394" height="118"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Ayy-yU-czz" secondAttribute="bottom" constant="10" id="Cqv-fn-8MW"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ayy-yU-czz" secondAttribute="trailing" constant="10" id="If7-PM-hST"/>
+                                                <constraint firstItem="Ayy-yU-czz" firstAttribute="leading" secondItem="qId-jL-fe9" secondAttribute="leading" constant="10" id="bbQ-xp-DHY"/>
+                                                <constraint firstItem="Ayy-yU-czz" firstAttribute="top" secondItem="qId-jL-fe9" secondAttribute="top" constant="10" id="r21-lK-4jZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="accountNumberLabel" destination="6a8-vy-i88" id="8i5-rJ-85e"/>
+                                            <outlet property="nameLabel" destination="lhT-EZ-3gw" id="Tp2-0T-K8K"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="PurpleBackground"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pie-EZ-inC" secondAttribute="trailing" id="7Lp-tv-EDv"/>
+                            <constraint firstItem="Pie-EZ-inC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PJI-yz-kB3"/>
+                            <constraint firstItem="Pie-EZ-inC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fEh-am-BAl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pie-EZ-inC" secondAttribute="bottom" id="mgR-yB-rxk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Pie-EZ-inC" id="GCY-Ei-WQc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="92.410714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="PurpleBackground">
+            <color red="0.42347608933952974" green="0.22145153570373799" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
