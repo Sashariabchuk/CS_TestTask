@@ -17,6 +17,7 @@ class AccountsViewController: UIViewController, AccountsProtocol {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var balanceView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class AccountsViewController: UIViewController, AccountsProtocol {
         // Layer modification
         collectionView.layer.masksToBounds = true
         collectionView.layer.cornerRadius = 20
+        collectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let layout = PagingCollectionViewLayout()
         layout.itemSize = CGSize(width: view.bounds.width, height: collectionView.bounds.height)
@@ -73,6 +75,21 @@ class AccountsViewController: UIViewController, AccountsProtocol {
             }
         }
     }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+        }
+        
+    }
+    
+    func startActiviryIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
 }
 
 extension AccountsViewController: UICollectionViewDataSource {
@@ -84,16 +101,20 @@ extension AccountsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath) as? AccountCollectionViewCell else { return UICollectionViewCell.init() }
         
-        cell.balanceLabel.text = "\(accounts[indexPath.row].balance)"
+        let balance = accounts[indexPath.row].balance
+        
+        cell.balanceLabel.text = "\(balance)"
         cell.accountNumberLabel.text = accounts[indexPath.row].accountNumber
         cell.bankCodeLabel.text = accounts[indexPath.row].bankCode
         cell.cardView.backgroundColor = .random
+        
         return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+
 }
 
 extension AccountsViewController: UICollectionViewDelegate {
@@ -108,5 +129,10 @@ extension AccountsViewController: UICollectionViewDelegate {
         nameLabel.text = accounts[indexPath.row].name
         balanceLabel.text = "\(accounts[indexPath.row].balance)"
         currencyLabel.text = accounts[indexPath.row].currency ?? ""
+        
+        // Pagination load
+        if indexPath.row == accounts.count - 1 {
+            viewModel?.getAccounts()
+        }
     }
 }

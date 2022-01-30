@@ -15,11 +15,8 @@ protocol AccountsCoordinatorProtocol: Coordinator {
 class AccountsCoordinator: AccountsCoordinatorProtocol {
     
     var finishDelegate: CoordinatorFinishDelegate?
-    
     var navigationController: UINavigationController
-    
     var childCoordinators: [Coordinator] = []
-    
     var type: CoordinatorType { .accounts }
     
     required init(_ navigationController: UINavigationController) {

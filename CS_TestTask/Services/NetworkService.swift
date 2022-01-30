@@ -13,21 +13,13 @@ class NetworkService {
     
     func fetchData<T: Codable>(urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            
-            guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
+            guard let data = data, let _ = response as? HTTPURLResponse, error == nil else {
                 print("error", error ?? "Unknown error")
                 completion(.failure(error as! Error))
                 return
             }
-            
-//            guard (400 ... 500) ~= response.statusCode else {
-//                print("statusCode should be 2xx, but is \(response.statusCode)")
-//                print("response = \(response)")
-//                return
-//            }
-            
             do {
-
+                
                 let decoder = JSONDecoder()
                 let data = try decoder.decode(T.self, from: data)
                 completion(.success(data))
@@ -37,16 +29,10 @@ class NetworkService {
         }.resume()
     }
     
-    func getURLRequest(from path: String) -> URLRequest? {
-        guard let url = URL(string: path) else { return nil }
-        
+    func getURLRequest(for url: URL) -> URLRequest? {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        
-
         urlRequest.setValue(Constants.API_KEY, forHTTPHeaderField: "WEB-API-key")
-        
-        
         return urlRequest
     }
 }

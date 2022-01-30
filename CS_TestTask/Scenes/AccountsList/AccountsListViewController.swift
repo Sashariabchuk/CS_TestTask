@@ -8,7 +8,6 @@
 import UIKit
 
 class AccountsListViewController: UIViewController, AccountsProtocol {
-    
     @IBOutlet weak var tableView: UITableView!
 
     var viewModel: AccountsViewModel?
@@ -29,6 +28,9 @@ class AccountsListViewController: UIViewController, AccountsProtocol {
             }
         }
     }
+    
+    func stopActivityIndicator() {}
+    func startActiviryIndicator() {}
 }
 
 extension AccountsListViewController: UITableViewDataSource {

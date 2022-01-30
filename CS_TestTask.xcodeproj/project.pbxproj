@@ -32,6 +32,7 @@
 		75F36B2E27A6F2D5005367C9 /* AccountsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F36B2D27A6F2D5005367C9 /* AccountsListViewController.swift */; };
 		75F36B3027A6F2F2005367C9 /* AccountsListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F36B2F27A6F2F2005367C9 /* AccountsListStoryboard.storyboard */; };
 		75F36B3327A6F3DC005367C9 /* AccountsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F36B3227A6F3DC005367C9 /* AccountsListTableViewCell.swift */; };
+		75F36B3927A735E6005367C9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F36B3827A735E6005367C9 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		75F36B2D27A6F2D5005367C9 /* AccountsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListViewController.swift; sourceTree = "<group>"; };
 		75F36B2F27A6F2F2005367C9 /* AccountsListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountsListStoryboard.storyboard; sourceTree = "<group>"; };
 		75F36B3227A6F3DC005367C9 /* AccountsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListTableViewCell.swift; sourceTree = "<group>"; };
+		75F36B3827A735E6005367C9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				75F36B2127A586CF005367C9 /* AccountsList.swift */,
 				75F36B2327A58752005367C9 /* Accounts.swift */,
 				75F36B2527A58938005367C9 /* Constants.swift */,
+				75F36B3827A735E6005367C9 /* Endpoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				75F36B1727A5815A005367C9 /* NetworkService.swift in Sources */,
 				75AD9F5D27A4B4020039388E /* AccountCollectionViewCell.swift in Sources */,
 				75F36B1A27A583FB005367C9 /* AccountDetailViewController.swift in Sources */,
+				75F36B3927A735E6005367C9 /* Endpoint.swift in Sources */,
 				75F36B2227A586CF005367C9 /* AccountsList.swift in Sources */,
 				75AD9F6627A4D0670039388E /* UIColor+random.swift in Sources */,
 				75AD9F3527A4AA3D0039388E /* AppDelegate.swift in Sources */,

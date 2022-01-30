@@ -10,9 +10,7 @@ import UIKit
 class AccountDetailViewController: UIViewController {
     
     var viewModel: AccountDetailViewModel?
-    
     var account: Accounts?
-    
     var backgroundColor: UIColor?
     
     @IBOutlet weak var containerView: UIView!

@@ -10,6 +10,8 @@ import UIKit
 
 protocol AccountsProtocol {
     func reload(with accounts: [Accounts])
+    func stopActivityIndicator()
+    func startActiviryIndicator()
 }
 
 class AccountsViewModel {
@@ -18,6 +20,7 @@ class AccountsViewModel {
     var coordinator: AccountsCoordinator?
     
     var accounts = [Accounts]()
+    var currentPage = 0
     
     init() {
         accounts.removeAll()
@@ -25,15 +28,19 @@ class AccountsViewModel {
     }
     
     func getAccounts() {
-        guard let urlRequest = NetworkService.shared.getURLRequest(from: Constants.API_URL) else { return }
+        //start activity indicatore
+        delegate?.startActiviryIndicator()
+        guard let urlRequest = NetworkService.shared.getURLRequest(for: Endpoint.getAccounts(page: currentPage).url) else { return }
         NetworkService.shared.fetchData(urlRequest: urlRequest) { (result: Result<AccountsList, Error>) in
             switch result {
                 case .success(let data):
+                    self.currentPage += 1
                     self.accounts.append(contentsOf: data.accounts)
                     self.delegate?.reload(with: self.accounts)
+                    self.delegate?.stopActivityIndicator()
                 case .failure(let error):
+                    self.delegate?.stopActivityIndicator()
                     print(error)
- 
             }
         }
     }

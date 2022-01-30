@@ -15,13 +15,9 @@ class AccountDetailCoordinator: AccountDetailCoordinatorProtocol {
 
     
     var finishDelegate: CoordinatorFinishDelegate?
-    
     var navigationController: UINavigationController
-    
     var childCoordinators: [Coordinator] = []
-    
     var type: CoordinatorType { .detail }
-    
     var account: Accounts?
     var backgroundColor: UIColor?
     

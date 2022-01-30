@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,15 +51,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vRj-Xj-FQL">
                                         <rect key="frame" x="10" y="42.5" width="334" height="42"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsd-8c-0Te">
-                                                <rect key="frame" x="0.0" y="0.0" width="280.5" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsd-8c-0Te">
+                                                <rect key="frame" x="0.0" y="0.0" width="290.5" height="42"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzM-IF-aRJ">
-                                                <rect key="frame" x="290.5" y="0.0" width="43.5" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CZK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzM-IF-aRJ">
+                                                <rect key="frame" x="300.5" y="0.0" width="33.5" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -68,12 +69,16 @@
                                 <color key="backgroundColor" name="PurpleForeground"/>
                                 <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="10"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTi-P9-M0a">
-                                <rect key="frame" x="30" y="100" width="354" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTi-P9-M0a">
+                                <rect key="frame" x="30" y="124" width="354" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8c6-qC-DuG">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="PurpleBackground"/>
@@ -85,6 +90,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QTi-P9-M0a" secondAttribute="trailing" constant="30" id="EWY-fF-hiO"/>
                             <constraint firstAttribute="bottom" secondItem="82E-U1-INA" secondAttribute="bottom" id="NSL-fm-ye0"/>
                             <constraint firstItem="82E-U1-INA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SI0-3a-w6x"/>
+                            <constraint firstItem="8c6-qC-DuG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ShI-cG-51r"/>
+                            <constraint firstItem="8c6-qC-DuG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Tyi-S3-Qhp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vmU-a3-Qm3" secondAttribute="trailing" constant="30" id="UpB-Gk-SYf"/>
                             <constraint firstItem="vmU-a3-Qm3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="aK6-20-zZA"/>
                             <constraint firstItem="vmU-a3-Qm3" firstAttribute="top" secondItem="QTi-P9-M0a" secondAttribute="bottom" constant="20" id="yGy-Vl-tlQ"/>
@@ -93,6 +100,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8c6-qC-DuG" id="nLj-Pq-hi4"/>
                         <outlet property="balanceLabel" destination="hsd-8c-0Te" id="c7E-C0-7Gf"/>
                         <outlet property="balanceView" destination="vmU-a3-Qm3" id="hRM-CF-OCJ"/>
                         <outlet property="collectionView" destination="82E-U1-INA" id="NtP-H0-nIU"/>
@@ -107,10 +115,13 @@
     </scenes>
     <resources>
         <namedColor name="PurpleBackground">
-            <color red="0.26800000667572021" green="0.14000000059604645" blue="0.31600001454353333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.42347608933952974" green="0.22145153570373799" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PurpleForeground">
             <color red="0.93333333333333335" green="0.90196078431372551" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -14,7 +14,7 @@ struct Accounts: Codable {
     let transparencyTo: String
     let publicationTo: String
     let actualizationDate: String
-    let balance: Float
+    let balance: Double
     let currency: String?
     let name: String
     let iban: String
