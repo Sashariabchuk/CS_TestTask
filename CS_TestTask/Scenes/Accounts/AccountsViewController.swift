@@ -31,7 +31,7 @@ class AccountsViewController: UIViewController, AccountsProtocol {
     private func setUpNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .done, target: self, action: #selector(openList))
-        navigationController?.navigationBar.tintColor = UIColor(named: "PurpleForeground")
+        navigationController?.navigationBar.tintColor = .label
     }
     
     // Setup BalanceView
